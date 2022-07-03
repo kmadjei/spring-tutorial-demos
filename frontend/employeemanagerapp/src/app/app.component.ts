@@ -13,6 +13,7 @@ export class AppComponent {
   public employees!: Employee[];
   public editEmployee!: Employee;
   public deleteEmployee!: Employee;
+  public addEmpVar!: Employee;
 
   constructor(private employeeService: EmployeeService) {}
 
@@ -26,7 +27,7 @@ export class AppComponent {
         this.employees = response;
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        console.error(error.message);
       }
     );
   }
@@ -88,7 +89,15 @@ export class AppComponent {
   }
 
   public onOpenModal(employee: Employee, mode: string): void {
+    // get container element for the list of employees
     const container = document.getElementById('main-container');
+
+    /**
+     * Construct Bootstrap button for example
+     * <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+        Launch static backdrop modal
+      </button>
+     */
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
@@ -105,6 +114,7 @@ export class AppComponent {
       button.setAttribute('data-target', '#deleteEmployeeModal');
     }
     container?.appendChild(button);
+    // imitates mouse click action  to open targeted modal
     button.click();
   }
 }

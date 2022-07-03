@@ -4,7 +4,8 @@ import java.time.*;
 
 import javax.persistence.*;
 
-@Entity
+// best practice to include specific name
+@Entity (name ="Student")
 @Table
 public class Student {
     @Id
