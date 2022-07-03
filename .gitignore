@@ -13,7 +13,7 @@ target/
 .springBeans
 .sts4-cache
 
-*notes.txt
+#*notes.txt
 
 ### IntelliJ IDEA ###
 .idea
